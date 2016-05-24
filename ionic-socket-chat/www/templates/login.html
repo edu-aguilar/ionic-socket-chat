@@ -1,9 +1,22 @@
 <ion-view view-title="Login" id="login">
 
-    <ion-content class="">
+    <ion-content>
 
-        <div class="">
-          content
+        <div class="list login-container vertical-align">
+
+          <form name="vm.loginForm" class="full-width">
+            <label class="item item-input item-floating-label full-width">
+              <span class="input-label">Username</span>
+              <input type="text" name="username" placeholder="Set your username" ng-model="vm.userName" required>
+            </label>
+          </form>
+
+          <button ng-disabled="!vm.loginForm.$valid" class="button button-full button-royal">
+            Open chat
+          </button>
+
         </div>
+
+    </ion-content>
 
 </ion-view>

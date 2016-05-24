@@ -1,0 +1,12 @@
+#login {
+  ion-content {
+    &>.scroll {
+      height: 100%;
+    }
+
+    .login-container {
+      height: 100%;
+      padding: 2rem;
+    }
+  }
+}
