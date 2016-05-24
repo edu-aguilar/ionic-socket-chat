@@ -1,25 +1,22 @@
-Ionic App Base
+Ionic Socket Chat example
 =====================
 
-A starting project for Ionic that optionally supports using custom SCSS.
+A basic Ionic project using 1.3.1 version and AngularJS v1.5.3
+All the code follows the [amazing John Papa StyleGuide](https://github.com/johnpapa/angular-styleguide/tree/master/a1)
+The project goal is understand easily the angular-socket library and get a very interesting chat app. I hope that this project can grow asap. =)
 
-## Using this project
+#### how to run this project
 
-We recommend using the [Ionic CLI](https://github.com/driftyco/ionic-cli) to create new Ionic projects that are based on this project but use a ready-made starter template.
+Just clone it, open your console and type:
 
-For example, to start a new Ionic project with the default tabs interface, make sure the `ionic` utility is installed:
+  - npm install ionic -g
+  - npm install
+  - bower install
+  - ionic serve
 
-```bash
-$ npm install -g ionic
-```
+And project will run in your browser. Anyway, if you want to run the project in real device, also type:
 
-Then run: 
+  - ionic platform add android
+  - ionic run android
 
-```bash
-$ ionic start myProject tabs
-```
-
-More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/getting-started) page and the [Ionic CLI](https://github.com/driftyco/ionic-cli) repo.
-
-## Issues
-Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/submit-issue/) to the main Ionic repository.
+Enjoy!!
