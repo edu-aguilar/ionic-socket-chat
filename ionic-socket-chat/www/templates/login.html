@@ -11,7 +11,7 @@
             </label>
           </form>
 
-          <button ng-disabled="!vm.loginForm.$valid" class="button button-full button-royal">
+          <button ng-disabled="!vm.loginForm.$valid" ng-click="vm.doLogin()" class="button button-full button-royal">
             Open chat
           </button>
 

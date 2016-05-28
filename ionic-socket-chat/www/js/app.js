@@ -47,6 +47,15 @@ function ionicConfig($stateProvider, $urlRouterProvider) {
                     controller: 'LoginController as vm'
                 }
             }
+        })
+        .state('app.chat', {
+            url: "/chat/:userName",
+            views: {
+                'viewContent': {
+                    templateUrl: "templates/chat.html",
+                    controller: 'ChatController as vm'
+                }
+            }
         });
     $urlRouterProvider.otherwise('/app/login');
 }
