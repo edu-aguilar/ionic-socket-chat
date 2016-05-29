@@ -5,13 +5,26 @@
         .module('controllers')
         .controller('ChatController', ChatController);
 
-    function ChatController(socketFactory) {
+    function ChatController(chat, $stateParams) {
         var vm = this;
 
-        activate();
+        //scope methods
+        vm.sendMessage = sendMessage;
 
-        function activate() {
-            console.log('chat controller');
+        //chat events
+        chat.on('connect', onConnect);
+        chat.on('new message', onNewMessage);
+
+        function sendMessage() {
+            console.log(vm.message);
+        }
+
+        function onConnect() {
+
+        }
+
+        function onNewMessage() {
+
         }
     }
 })();

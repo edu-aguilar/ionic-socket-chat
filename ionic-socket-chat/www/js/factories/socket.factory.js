@@ -3,14 +3,14 @@
 
     angular
         .module('factories')
-        .factory('socketFactory', socketFactory);
+        .factory('chat', chat);
 
-    function socketFactory() {
+    function chat(socketFactory) {
 
         var _ioSocket = io.connect('http://chat.socket.io');
 
-        return {
-            ioSocket: _ioSocket
-        }
+        return socketFactory({
+          ioSocket: _ioSocket
+        });
     }
 })();
