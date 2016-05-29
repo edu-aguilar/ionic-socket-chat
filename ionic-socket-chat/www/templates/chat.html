@@ -9,7 +9,10 @@
         </div>
 
         <div class="chat-element chat-content">
-          chat content
+          <ion-item ng-repeat="message in vm.messages">
+            <span>{{::message.userName}}: </span>
+            <span>{{::message.content}}</span>
+          </ion-item>
         </div>
 
         <div class="chat-element chat-text-box">
