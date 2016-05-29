@@ -5,7 +5,7 @@
         .module('controllers')
         .controller('ChatController', ChatController);
 
-    function ChatController() {
+    function ChatController(socketFactory) {
         var vm = this;
 
         activate();
