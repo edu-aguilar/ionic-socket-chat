@@ -9822,7 +9822,25 @@ a.button {
   height: 100%;
   padding: 2rem; }
 
-.vertical-align {
+#chat ion-content > .scroll {
+  height: 100%; }
+
+#chat ion-content .chat-container {
+  height: 100%; }
+  #chat ion-content .chat-container .chat-element {
+    width: 100%;
+    text-align: center; }
+  #chat ion-content .chat-container .chat-info {
+    flex-basis: 10%; }
+  #chat ion-content .chat-container .chat-content {
+    flex-basis: 80%; }
+  #chat ion-content .chat-container .chat-text-box {
+    flex-basis: 10%; }
+    #chat ion-content .chat-container .chat-text-box input {
+      border-bottom: solid 1px green;
+      width: 100%; }
+
+.vertical-align, #chat ion-content .chat-container {
   display: flex;
   align-items: center;
   justify-content: center;
