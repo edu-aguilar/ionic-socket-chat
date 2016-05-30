@@ -31,11 +31,11 @@
         }
 
         function onConnect() {
-
+            chat.emit('add user', $stateParams.userName);
         }
 
-        function onNewMessage() {
-
+        function onNewMessage(data) {
+            addMessageToList(data.username, data.message);
         }
     }
 })();
