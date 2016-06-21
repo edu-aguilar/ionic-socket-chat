@@ -5,8 +5,9 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('factories', []);
 angular.module('controllers', []);
+angular.module('components', []);
 
-angular.module('ionicSocketChat', ['ionic', 'controllers', 'btford.socket-io', 'factories'])
+angular.module('ionicSocketChat', ['ionic', 'controllers', 'btford.socket-io', 'factories', 'components'])
        .run(runApp)
        .config(ionicConfig);
 
