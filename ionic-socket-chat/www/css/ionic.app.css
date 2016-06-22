@@ -9837,6 +9837,9 @@ a.button {
 .full-width {
   width: 100%; }
 
+.right {
+  text-align: right; }
+
 #chat-message-container {
   padding: 0.3rem 0.6rem;
   position: relative; }
@@ -9874,3 +9877,23 @@ a.button {
     position: absolute;
     bottom: 1px;
     left: 9px; }
+  #chat-message-container .triangle-right .triangle-right-up {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transform: rotate(-141deg);
+    border-right: 10px solid lightgray;
+    position: absolute;
+    bottom: 0;
+    right: 7px; }
+  #chat-message-container .triangle-right .triangle-right-down {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transform: rotate(-141deg);
+    border-right: 10px solid #F2F2F2;
+    position: absolute;
+    bottom: 1px;
+    right: 9px; }

@@ -1,4 +1,4 @@
-<div id="chat-message-container">
+<div id="chat-message-container" ng-class="{'right' : !$ctrl.extUser}">
 
   <div class="chat-message">
     <span class="user-name">
@@ -8,8 +8,12 @@
       {{$ctrl.message}}
     </span>
   </div>
-  <div class="triangle-left">
+  <div ng-if="$ctrl.extUser" class="triangle-left">
     <div class="triangle-left-up"></div>
     <div class="triangle-left-down"></div>
+  </div>
+  <div ng-if="!$ctrl.extUser" class="triangle-right">
+    <div class="triangle-right-up"></div>
+    <div class="triangle-right-down"></div>
   </div>
 </div>

@@ -1,27 +1,25 @@
 #chat-message-container {
   //mixins
-  @mixin triangle-up($border-right, $bottom, $left) {
+  @mixin triangle-up($border-right, $bottom, $rotation) {
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    transform: rotate(-35deg);
+    transform: $rotation;
     border-right:$border-right;
     position: absolute;
     bottom: $bottom;
-    left: $left
   }
 
-  @mixin triangle-down($border-right, $bottom, $left) {
+  @mixin triangle-down($border-right, $bottom, $rotation) {
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
-    transform: rotate(-35deg);
+    transform: $rotation;
     border-right:$border-right;
     position: absolute;
     bottom: $bottom;
-    left: $left
   }
 
   padding: 0.3rem 0.6rem;
@@ -53,10 +51,23 @@
 
   .triangle-left {
     .triangle-left-up {
-      @include triangle-up(10px solid lightgray, 0, 7px);
+      @include triangle-up(10px solid lightgray, 0, rotate(-35deg));
+      left: 7px;
     }
     .triangle-left-down {
-      @include triangle-down(10px solid $main-color-1, 1px, 9px);
+      @include triangle-down(10px solid $main-color-1, 1px, rotate(-35deg));
+      left: 9px;
+    }
+  }
+
+  .triangle-right {
+    .triangle-right-up {
+      @include triangle-up(10px solid lightgray, 0, rotate(-141deg));
+      right: 7px;
+    }
+    .triangle-right-down {
+      @include triangle-down(10px solid $main-color-1, 1px, rotate(-141deg));
+      right: 9px;
     }
   }
 

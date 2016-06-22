@@ -8,7 +8,7 @@
     function ChatController(chat, $stateParams) {
         var vm = this;
         vm.messages = [];
-
+        vm.currentUser = $stateParams.userName;
         //scope methods
         vm.sendMessage = sendMessage;
 
@@ -18,7 +18,7 @@
 
         function sendMessage() {
             chat.emit('new message', vm.message);
-            addMessageToList($stateParams.userName, vm.message);
+            addMessageToList(vm.currentUser, vm.message);
             chat.emit('stop typing');
             vm.message = "";
         }
@@ -31,7 +31,7 @@
         }
 
         function onConnect() {
-            chat.emit('add user', $stateParams.userName);
+            chat.emit('add user', vm.currentUser);
         }
 
         function onNewMessage(data) {

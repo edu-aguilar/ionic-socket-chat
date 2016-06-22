@@ -5,7 +5,8 @@
         templateUrl: "js/components/chatMessage/chatMessage.html",
         bindings: {
             username: '<',
-            message: '<'
+            message: '<',
+            currentuser: '<'
         },
         controller: chatMessageController
     };
@@ -17,6 +18,7 @@
     function chatMessageController() {
         var vm = this;
         console.log(vm);
+        vm.extUser = vm.currentuser !== vm.username;
     }
 
 })();

@@ -5,14 +5,15 @@
       <div class="chat-container">
 
         <div class="chat-element chat-info">
-          chat info
+          chat info  {{vm.currentUser}}
         </div>
 
         <div class="chat-content">
           <chat-message
             ng-repeat="message in vm.messages"
             username="message.userName"
-            message="message.content">
+            message="message.content"
+            currentuser="vm.currentUser">
           </chat-message>
         </div>
 
