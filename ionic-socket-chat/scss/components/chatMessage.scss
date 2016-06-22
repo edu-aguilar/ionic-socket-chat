@@ -1,11 +1,37 @@
 #chat-message-container {
+  //mixins
+  @mixin triangle-up($border-right, $bottom, $left) {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transform: rotate(-35deg);
+    border-right:$border-right;
+    position: absolute;
+    bottom: $bottom;
+    left: $left
+  }
+
+  @mixin triangle-down($border-right, $bottom, $left) {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transform: rotate(-35deg);
+    border-right:$border-right;
+    position: absolute;
+    bottom: $bottom;
+    left: $left
+  }
 
   padding: 0.3rem 0.6rem;
+  position: relative;
 
   .chat-message-bubble {
     padding: 0.6rem;
     border: solid 1px lightgray;
     border-radius: 1rem;
+    background-color: $main-color-1;
   }
 
   .chat-message {
@@ -15,16 +41,23 @@
     flex-direction: column;
     align-items: stretch;
 
-    .chat-element {
-      display: inline-table;
-    }
     .user-name{
       font-size: 12px;
     }
     .message {
       font-size: 20px;
+      word-break: break-word;
     }
 
+  }
+
+  .triangle-left {
+    .triangle-left-up {
+      @include triangle-up(10px solid lightgray, 0, 7px);
+    }
+    .triangle-left-down {
+      @include triangle-down(10px solid $main-color-1, 1px, 9px);
+    }
   }
 
 }

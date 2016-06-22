@@ -9838,18 +9838,39 @@ a.button {
   width: 100%; }
 
 #chat-message-container {
-  padding: 0.3rem 0.6rem; }
+  padding: 0.3rem 0.6rem;
+  position: relative; }
   #chat-message-container .chat-message-bubble, #chat-message-container .chat-message {
     padding: 0.6rem;
     border: solid 1px lightgray;
-    border-radius: 1rem; }
+    border-radius: 1rem;
+    background-color: #F2F2F2; }
   #chat-message-container .chat-message {
     display: inline-flex;
     flex-direction: column;
     align-items: stretch; }
-    #chat-message-container .chat-message .chat-element {
-      display: inline-table; }
     #chat-message-container .chat-message .user-name {
       font-size: 12px; }
     #chat-message-container .chat-message .message {
-      font-size: 20px; }
+      font-size: 20px;
+      word-break: break-word; }
+  #chat-message-container .triangle-left .triangle-left-up {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transform: rotate(-35deg);
+    border-right: 10px solid lightgray;
+    position: absolute;
+    bottom: 0;
+    left: 7px; }
+  #chat-message-container .triangle-left .triangle-left-down {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    transform: rotate(-35deg);
+    border-right: 10px solid #F2F2F2;
+    position: absolute;
+    bottom: 1px;
+    left: 9px; }
