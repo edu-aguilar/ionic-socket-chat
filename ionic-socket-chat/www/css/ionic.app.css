@@ -9828,6 +9828,11 @@ a.button {
 #chat ion-content .chat-container {
   height: 100%; }
 
+#chat ion-footer-bar {
+  padding: 0; }
+  #chat ion-footer-bar .col-80 input {
+    width: 100%; }
+
 .vertical-align {
   display: flex;
   align-items: center;
@@ -9839,6 +9844,9 @@ a.button {
 
 .right {
   text-align: right; }
+
+.center {
+  text-align: center; }
 
 #chat-message-container {
   padding: 0.3rem 0.6rem;

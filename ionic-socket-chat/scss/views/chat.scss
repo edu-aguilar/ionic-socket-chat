@@ -8,4 +8,13 @@
       height: 100%;
     }
   }
+
+  ion-footer-bar {
+    padding: 0;
+
+    .col-80 input {
+      width: 100%;
+    }
+  }
+
 }

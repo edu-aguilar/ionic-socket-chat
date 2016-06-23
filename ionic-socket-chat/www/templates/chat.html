@@ -1,12 +1,12 @@
 <ion-view view-title="chat" id="chat">
 
+    <div class="chat-element chat-info">
+      chat info  {{vm.currentUser}}
+    </div>
+
     <ion-content>
 
       <div class="chat-container">
-
-        <div class="chat-element chat-info">
-          chat info  {{vm.currentUser}}
-        </div>
 
         <div class="chat-content">
           <chat-message
@@ -17,18 +17,18 @@
           </chat-message>
         </div>
 
-        <div class="chat-element chat-text-box">
-          <div class="row">
-            <div class="col col-80">
-              <input type="text" ng-model="vm.message" placeholder="Write here">
-            </div>
-            <div class="col col-20">
-              <button class="button button-icon icon ion-paper-airplane" ng-click="vm.sendMessage()"></button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </ion-content>
+
+    <ion-footer-bar>
+        <div class="row">
+          <div class="col col-80">
+            <input type="text" ng-model="vm.message" placeholder="Write here">
+          </div>
+          <div class="col col-20 center">
+            <button class="button button-icon icon ion-paper-airplane" ng-click="vm.sendMessage()"></button>
+          </div>
+        </div>
+    </ion-footer-bar>
 
 </ion-view>
