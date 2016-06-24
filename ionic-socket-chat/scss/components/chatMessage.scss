@@ -14,8 +14,8 @@
   @mixin triangle-down($border-right, $bottom, $rotation) {
     width: 0;
     height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
+    border-top: 20px solid transparent;
+    border-bottom: 8px solid transparent;
     transform: $rotation;
     border-right:$border-right;
     position: absolute;
@@ -28,7 +28,7 @@
   .chat-message-bubble {
     padding: 0.6rem;
     border: solid 1px lightgray;
-    border-radius: 1rem;
+    border-radius: 10px;
     background-color: $main-color-1;
   }
 
@@ -38,6 +38,8 @@
     display: inline-flex;
     flex-direction: column;
     align-items: stretch;
+    position: relative;
+    z-index: 50;
 
     .user-name{
       font-size: 12px;
@@ -50,24 +52,16 @@
   }
 
   .triangle-left {
-    .triangle-left-up {
-      @include triangle-up(10px solid lightgray, 0, rotate(-35deg));
-      left: 7px;
-    }
     .triangle-left-down {
-      @include triangle-down(10px solid $main-color-1, 1px, rotate(-35deg));
-      left: 9px;
+      @include triangle-down(17px solid lightgray, -7px, rotate(-155deg));
+      left: 10px;
     }
   }
 
   .triangle-right {
-    .triangle-right-up {
-      @include triangle-up(10px solid lightgray, 0, rotate(-141deg));
-      right: 7px;
-    }
     .triangle-right-down {
-      @include triangle-down(10px solid $main-color-1, 1px, rotate(-141deg));
-      right: 9px;
+      @include triangle-down(10px solid lightgray, -2px, rotate(-20deg));
+      right: 10px;
     }
   }
 
