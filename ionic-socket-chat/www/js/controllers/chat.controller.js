@@ -8,14 +8,19 @@
     function ChatController(chat, $stateParams) {
         var vm = this;
         vm.messages = [];
+        vm.totalUsers = null;
         vm.currentUser = $stateParams.userName;
         //scope methods
         vm.sendMessage = sendMessage;
 
         //chat events
         chat.on('connect', onConnect);
+        chat.on('login', onLogin);
         chat.on('new message', onNewMessage);
+        chat.on('user joined', onUserJoined);
+        chat.on('user left', onUserLeft);
 
+        //scope methods
         function sendMessage() {
             chat.emit('new message', vm.message);
             addMessageToList(vm.currentUser, vm.message);
@@ -23,19 +28,35 @@
             vm.message = "";
         }
 
+        //chat events
+        function onConnect() {
+            chat.emit('add user', vm.currentUser);
+        }
+
+        function onLogin(data) {
+            vm.totalUsers = data.numUsers;
+        }
+
+        function onNewMessage(data) {
+            addMessageToList(data.username, data.message);
+        }
+
+        function onUserJoined(data) {
+            console.log('user joined: ' + JSON.stringify(data));
+            vm.totalUsers = data.numUsers;
+        }
+
+        function onUserLeft(data) {
+            console.log('user left: ' + JSON.stringify(data));
+            vm.totalUsers = data.numUsers;
+        }
+
+        //private methods
         function addMessageToList(userName, message){
             vm.messages.push({
                 content: message,
                 userName: userName
             });
-        }
-
-        function onConnect() {
-            chat.emit('add user', vm.currentUser);
-        }
-
-        function onNewMessage(data) {
-            addMessageToList(data.username, data.message);
         }
     }
 })();

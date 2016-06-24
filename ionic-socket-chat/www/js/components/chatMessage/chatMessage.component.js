@@ -17,7 +17,6 @@
 
     function chatMessageController() {
         var vm = this;
-        console.log(vm);
         vm.extUser = vm.currentuser !== vm.username;
     }
 

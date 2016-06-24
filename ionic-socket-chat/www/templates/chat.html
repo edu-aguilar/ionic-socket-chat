@@ -1,11 +1,10 @@
 <ion-view view-title="chat" id="chat">
 
-    <div class="chat-element chat-info">
-      chat info  {{vm.currentUser}}
+    <div class="bar bar-subheader subheader">
+      <span class="total-users" ng-show="vm.totalUsers">{{vm.totalUsers}} participantes</span>
     </div>
 
-    <ion-content>
-
+    <ion-content class="has-subheader">
       <div class="chat-container">
 
         <div class="chat-content">

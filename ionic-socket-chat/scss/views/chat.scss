@@ -1,5 +1,14 @@
 #chat {
 
+  .subheader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+      .total-users {
+        margin: 0 auto;
+      }
+  }
+
   ion-content {
     &>.scroll {
       height: 100%;
@@ -12,9 +21,14 @@
   ion-footer-bar {
     padding: 0;
 
-    .col-80 input {
-      width: 100%;
+    .row {
+      padding: 0;
+      .col-80 input {
+        width: 100%;
+        padding: 0.3rem 1rem;
+      }
     }
   }
+
 
 }

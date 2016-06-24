@@ -9822,6 +9822,13 @@ a.button {
   height: 100%;
   padding: 2rem; }
 
+#chat .subheader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  #chat .subheader .total-users {
+    margin: 0 auto; }
+
 #chat ion-content > .scroll {
   height: 100%; }
 
@@ -9830,8 +9837,11 @@ a.button {
 
 #chat ion-footer-bar {
   padding: 0; }
-  #chat ion-footer-bar .col-80 input {
-    width: 100%; }
+  #chat ion-footer-bar .row {
+    padding: 0; }
+    #chat ion-footer-bar .row .col-80 input {
+      width: 100%;
+      padding: 0.3rem 1rem; }
 
 .vertical-align {
   display: flex;
