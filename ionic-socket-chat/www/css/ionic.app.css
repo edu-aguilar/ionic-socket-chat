@@ -9852,6 +9852,9 @@ a.button {
 .full-width {
   width: 100%; }
 
+.left {
+  text-align: left; }
+
 .right {
   text-align: right; }
 
