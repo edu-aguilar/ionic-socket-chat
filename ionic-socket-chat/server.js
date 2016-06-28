@@ -15,58 +15,63 @@ app.use(express.static(__dirname + '/www'));
 // Chat Room vars
 var usernames = {};
 var numUsers = 0;
-
-//var rooms = [];
+var rooms = ['default'];
 
 io.on('connection', function (socket) {
 
   // when the client emits 'add user', this listens and executes
   socket.on('add user', function (username) {
 
-    // we store the username in the socket session for this client
+    // we join the user to the default room
+    socket.join(rooms[0]);
+
+    // we store the username and room in the socket session for this client
     socket.username = username;
+    socket.room = rooms[0];
 
     // add the client's username to the global list
     usernames[username] = username;
     ++numUsers;
 
     // echo globally (all clients) that a person has connected
-    socket.broadcast.emit('user joined', {
+    socket.broadcast.to(socket.room).emit('user joined', {
       username: socket.username,
       numUsers: numUsers,
+      room: socket.room,
     });
   });
 
   // when the client emits 'new message', this listens and executes
   socket.on('new message', function (data) {
     // we tell the client to execute 'new message'
-    socket.broadcast.emit('new message', {
+    socket.broadcast.to(socket.room).emit('new message', {
       username: socket.username,
       message: data,
+      room: socket.room,
     });
+  });
+
+  // when the client emits 'join', this listens and executes
+  socket.on('join', function (data) {
+    socket.room = data.room;
+    socket.join(data.room);
+  });
+
+  // when the client emits 'leave', this listens and executes
+  socket.on('leave', function (data) {
+    socket.leave(data.room);
   });
 
   // when the client emits 'typing', we broadcast it to others
   socket.on('typing', function () {
-    socket.broadcast.emit('typing', {
+    socket.broadcast.to(socket.room).emit('typing', {
       username: socket.username,
     });
   });
 
-  // TODO Add Rooms
-  // when the client emits 'join', we broadcast it to others
-  // socket.on('join', function (room) {
-  //   socket.room = room;
-  //   socket.join(socket.room);
-  //   socket.broadcast.emit('user joined room', {
-  //     username: socket.username,
-  //     room: socket.room,
-  //   });
-  // });
-
   // when the client emits 'stop typing', we broadcast it to others
   socket.on('stop typing', function () {
-    socket.broadcast.emit('stop typing', {
+    socket.broadcast.to(socket.room).emit('stop typing', {
       username: socket.username,
     });
   });
@@ -76,7 +81,7 @@ io.on('connection', function (socket) {
     --numUsers;
 
     // echo globally that this client has left
-    socket.broadcast.emit('user left', {
+    socket.broadcast.to(socket.room).emit('user left', {
       username: socket.username,
       numUsers: numUsers,
     });
