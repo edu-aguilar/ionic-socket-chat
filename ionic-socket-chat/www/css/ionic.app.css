@@ -9823,6 +9823,7 @@ a.button {
   padding: 2rem; }
 
 #chat .subheader {
+  background-color: #BCA9F5;
   display: flex;
   flex-direction: column;
   justify-content: center; }

@@ -5,8 +5,12 @@
         .module('controllers')
         .controller('ChatController', ChatController);
 
-    function ChatController(chat, $stateParams) {
+    function ChatController(chat, $stateParams, $localStorage, $scope) {
         var vm = this;
+
+        $scope.$on('$ionicView.beforeEnter', function() {
+            vm.selectedColour = $localStorage.backgroundColor || '#FFFFFF';
+        });
         vm.messages = [];
         vm.totalUsers = null;
         vm.currentUser = $stateParams.userName;

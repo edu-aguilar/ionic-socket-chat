@@ -6,6 +6,7 @@
   },
   "dependencies": {
     "angular-socket-io": "~0.7.0",
-    "ionic-color-picker": "~1.0.3"
+    "ionic-color-picker": "~1.0.3",
+    "ngstorage": "~0.3.10"
   }
 }

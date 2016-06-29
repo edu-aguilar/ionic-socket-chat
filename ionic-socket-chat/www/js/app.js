@@ -7,7 +7,9 @@ angular.module('factories', []);
 angular.module('controllers', []);
 angular.module('components', []);
 
-angular.module('ionicSocketChat', ['ionic', 'controllers', 'btford.socket-io', 'factories', 'components', 'ionic-color-picker'])
+angular.module('ionicSocketChat', ['ionic', 'controllers', 'btford.socket-io',
+                                    'factories', 'components', 'ionic-color-picker',
+                                    'ngStorage'])
        .run(runApp)
        .config(ionicConfig);
 

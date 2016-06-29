@@ -6,13 +6,12 @@
         .controller('SettingsController', SettingsController);
 
     /* @ngInject */
-    function SettingsController() {
+    function SettingsController($scope, $localStorage) {
         var vm = this;
+        vm.selectedColour = $localStorage.backgroundColor;
 
-        activate();
-
-        function activate() {
-
-        }
+        $scope.$watch('vm.selectedColour', function() {
+            $localStorage.backgroundColor = vm.selectedColour;
+        });
     }
 })();
