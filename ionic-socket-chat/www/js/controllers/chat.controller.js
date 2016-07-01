@@ -22,7 +22,7 @@
 
         //chat events
         chat.on('connect', onConnect);
-        chat.on('welcome', onWelcome);
+        chat.on('login', onLogin);
         chat.on('new message', onNewMessage);
         chat.on('user joined', onUserJoined);
         chat.on('user left', onUserLeft);
@@ -40,7 +40,7 @@
             chat.emit('add user', vm.currentUser);
         }
 
-        function onWelcome(data) {
+        function onLogin(data) {
             console.log('welcome: ' + JSON.stringify(data));
             vm.totalUsers = data.numUsers;
         }

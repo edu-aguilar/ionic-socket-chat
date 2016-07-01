@@ -28,7 +28,7 @@ io.on('connection', function (socket) {
         ++numUsers;
         // Send events
         socketBroadcast('user joined');
-        ioEmit('welcome');
+        ioEmit('login');
     });
 
     // when the client emits 'new message', this listens and executes
