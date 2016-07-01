@@ -6,10 +6,11 @@
 angular.module('factories', []);
 angular.module('controllers', []);
 angular.module('components', []);
+angular.module('directives', []);
 
 angular.module('ionicSocketChat', ['ionic', 'controllers', 'btford.socket-io',
                                     'factories', 'components', 'ionic-color-picker',
-                                    'ngStorage'])
+                                    'ngStorage', 'directives'])
        .run(runApp)
        .config(ionicConfig);
 
