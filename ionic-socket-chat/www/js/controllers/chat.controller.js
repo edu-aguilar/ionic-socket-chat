@@ -11,15 +11,18 @@
         $scope.$on('$ionicView.beforeEnter', function() {
             vm.selectedColour = $localStorage.backgroundColor || '#FFFFFF';
         });
+
+        //scope vars
         vm.messages = [];
         vm.totalUsers = null;
         vm.currentUser = $stateParams.userName;
+
         //scope methods
         vm.sendMessage = sendMessage;
 
         //chat events
         chat.on('connect', onConnect);
-        chat.on('login', onLogin);
+        chat.on('welcome', onWelcome);
         chat.on('new message', onNewMessage);
         chat.on('user joined', onUserJoined);
         chat.on('user left', onUserLeft);
@@ -37,11 +40,13 @@
             chat.emit('add user', vm.currentUser);
         }
 
-        function onLogin(data) {
+        function onWelcome(data) {
+            console.log('welcome: ' + JSON.stringify(data));
             vm.totalUsers = data.numUsers;
         }
 
         function onNewMessage(data) {
+            console.log('new message: ' + JSON.stringify(data));
             addMessageToList(data.username, data.message);
         }
 
