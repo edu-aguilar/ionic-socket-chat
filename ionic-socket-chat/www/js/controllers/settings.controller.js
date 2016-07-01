@@ -29,6 +29,7 @@
                     console.log('actionSheet closed');
                 },
                 buttonClicked: function(index) {
+                    takePicture();
                     return true;
                 }
             };
@@ -46,14 +47,13 @@
                 encodingType: Camera.EncodingType.JPEG,
                 targetWidth: 100,
                 targetHeight: 100,
-                popoverOptions: CameraPopoverOptions,
                 saveToPhotoAlbum: false,
-            correctOrientation:true
+                correctOrientation:true
             };
 
             $cordovaCamera.getPicture(options).then(function(imageData) {
                 console.log(imageData);
-                image.src = "data:image/jpeg;base64," + imageData;
+                //image.src = "data:image/jpeg;base64," + imageData;
             }, function(err) {
                 // error
             });

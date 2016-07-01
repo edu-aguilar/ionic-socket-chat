@@ -10,7 +10,7 @@ angular.module('directives', []);
 
 angular.module('ionicSocketChat', ['ionic', 'controllers', 'btford.socket-io',
                                     'factories', 'components', 'ionic-color-picker',
-                                    'ngStorage', 'directives'])
+                                    'ngStorage', 'directives', 'ngCordova'])
        .run(runApp)
        .config(ionicConfig);
 
