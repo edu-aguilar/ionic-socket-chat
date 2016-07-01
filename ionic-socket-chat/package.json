@@ -19,7 +19,8 @@
   "cordovaPlugins": [
     "cordova-plugin-device",
     "cordova-plugin-console",
-    "cordova-plugin-whitelist"
+    "cordova-plugin-whitelist",
+    "cordova-plugin-camera"
   ],
   "cordovaPlatforms": [
     "android"
