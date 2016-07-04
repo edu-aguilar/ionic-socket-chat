@@ -5,7 +5,7 @@
         .module('controllers')
         .controller('ChatController', ChatController);
 
-    function ChatController(chat, $stateParams, $localStorage, $scope) {
+    function ChatController(chat, $stateParams, $localStorage, $scope, $ionicScrollDelegate) {
         var vm = this;
 
         $scope.$on('$ionicView.beforeEnter', function() {
@@ -33,6 +33,7 @@
             addMessageToList(vm.currentUser, vm.message);
             chat.emit('stop typing');
             vm.message = "";
+            updateScroll();
         }
 
         //chat events
@@ -48,6 +49,7 @@
         function onNewMessage(data) {
             console.log('new message: ' + JSON.stringify(data));
             addMessageToList(data.username, data.message);
+            updateScroll();
         }
 
         function onUserJoined(data) {
@@ -66,6 +68,10 @@
                 content: message,
                 userName: userName
             });
+        }
+
+        function updateScroll() {
+            $ionicScrollDelegate.scrollBottom(true);
         }
     }
 })();
