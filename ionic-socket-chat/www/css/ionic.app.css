@@ -9884,6 +9884,10 @@ a.button {
     #chat-message-container .chat-message .message {
       font-size: 20px;
       word-break: break-word; }
+  #chat-message-container.info-message {
+    text-align: center; }
+    #chat-message-container.info-message .message {
+      font-size: 13px; }
   #chat-message-container .triangle-left .triangle-left-down {
     width: 0;
     height: 0;

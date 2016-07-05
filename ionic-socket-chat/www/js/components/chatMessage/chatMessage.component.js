@@ -7,6 +7,7 @@
             username: '<',
             message: '<',
             messagehour: '<',
+            type: '<',
             currentuser: '<'
         },
         controller: chatMessageController

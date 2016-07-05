@@ -34,7 +34,7 @@
         function sendMessage() {
             chat.emit('new message', vm.message);
             var messageHour = moment().format("H:m");
-            addMessageToList(vm.currentUser, vm.message, messageHour);
+            addMessageToList(vm.currentUser, vm.message, messageHour, 'message');
             chat.emit('stop typing');
             vm.message = "";
             updateScroll();
@@ -53,26 +53,29 @@
         function onNewMessage(data) {
             console.log('new message: ' + JSON.stringify(data));
             var messageHour = moment().format("H:m");
-            addMessageToList(data.username, data.message, messageHour);
+            addMessageToList(data.username, data.message, messageHour, 'message');
             updateScroll();
         }
 
         function onUserJoined(data) {
             console.log('user joined: ' + JSON.stringify(data));
+            addMessageToList(data.username, data.username + ' joined', null, 'info');
             vm.totalUsers = data.numUsers;
         }
 
         function onUserLeft(data) {
             console.log('user left: ' + JSON.stringify(data));
+            addMessageToList(data.username, data.username + ' left', null, 'info');
             vm.totalUsers = data.numUsers;
         }
 
         //private methods
-        function addMessageToList(userName, message, hour){
+        function addMessageToList(userName, message, hour, type){
             vm.messages.push({
                 content: message,
                 userName: userName,
-                messageHour: hour
+                messageHour: hour,
+                type: type
             });
         }
 

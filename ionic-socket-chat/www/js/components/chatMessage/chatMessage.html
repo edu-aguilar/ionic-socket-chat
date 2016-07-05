@@ -1,7 +1,7 @@
-<div id="chat-message-container" ng-class="{'right' : !$ctrl.extUser}">
+<div id="chat-message-container" ng-class="{'right' : !$ctrl.extUser, 'info-message' : $ctrl.type === 'info'}">
 
   <div class="chat-message">
-    <div class="chat-message-header">
+    <div ng-show="$ctrl.type !== 'info'" class="chat-message-header">
       <span font-colour="{{$ctrl.colorName}}" class="user-name">
         {{$ctrl.username}}
       </span>
@@ -13,10 +13,10 @@
       {{$ctrl.message}}
     </span>
   </div>
-  <div ng-if="$ctrl.extUser" class="triangle-left">
+  <div ng-show="$ctrl.type !== 'info'" ng-if="$ctrl.extUser" class="triangle-left">
     <div class="triangle-left-down"></div>
   </div>
-  <div ng-if="!$ctrl.extUser" class="triangle-right">
+  <div ng-show="$ctrl.type !== 'info'" ng-if="!$ctrl.extUser" class="triangle-right">
     <div class="triangle-right-down"></div>
   </div>
 </div>

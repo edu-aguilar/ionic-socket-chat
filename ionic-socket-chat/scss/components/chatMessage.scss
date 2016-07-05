@@ -59,6 +59,14 @@
 
   }
 
+  &.info-message{
+    text-align: center;
+
+    .message{
+      font-size: 13px;
+    }
+  }
+
   .triangle-left {
     .triangle-left-down {
       @include triangle-down(17px solid lightgray, -7px, rotate(-155deg));
