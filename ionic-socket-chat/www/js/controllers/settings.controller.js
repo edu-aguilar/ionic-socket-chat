@@ -15,6 +15,7 @@
 
         $scope.$watch('vm.selectedColour', function() {
             $localStorage.backgroundColor = vm.selectedColour;
+            $localStorage.backgroundImage = null;
         });
 
         function showActionSheet() {
@@ -29,7 +30,11 @@
                     console.log('actionSheet closed');
                 },
                 buttonClicked: function(index) {
-                    takePicture();
+                    if (index === 0) {
+                        takePicture(0);
+                    } else {
+                        takePicture(1);
+                    }
                     return true;
                 }
             };
@@ -38,22 +43,23 @@
         }
 
         //private
-        function takePicture() {
+        function takePicture(sourceType) {
             var options = {
-                quality: 50,
-                destinationType: Camera.DestinationType.DATA_URL,
-                sourceType: Camera.PictureSourceType.CAMERA,
-                allowEdit: true,
-                encodingType: Camera.EncodingType.JPEG,
+                quality: 60,
+                destinationType: 0, //base64
+                sourceType: sourceType, //0 galeria, 1 camara
+                allowEdit: false,
                 targetWidth: 100,
                 targetHeight: 100,
                 saveToPhotoAlbum: false,
-                correctOrientation:true
+                correctOrientation: false
             };
 
             $cordovaCamera.getPicture(options).then(function(imageData) {
                 console.log(imageData);
                 //image.src = "data:image/jpeg;base64," + imageData;
+                $localStorage.backgroundImage = "data:image/jpeg;base64," + imageData;
+                $localStorage.backgroundColor = null;
             }, function(err) {
                 // error
             });
