@@ -41,9 +41,17 @@
     position: relative;
     z-index: 50;
 
-    .user-name{
-      font-size: 12px;
+    .chat-message-header{
+      .user-name{
+        font-size: 12px;
+      }
+
+      .message-hour{
+        font-size: 10px;
+        padding-left: 10px;
+      }
     }
+
     .message {
       font-size: 20px;
       word-break: break-word;

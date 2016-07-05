@@ -9876,8 +9876,11 @@ a.button {
     align-items: stretch;
     position: relative;
     z-index: 50; }
-    #chat-message-container .chat-message .user-name {
+    #chat-message-container .chat-message .chat-message-header .user-name {
       font-size: 12px; }
+    #chat-message-container .chat-message .chat-message-header .message-hour {
+      font-size: 10px;
+      padding-left: 10px; }
     #chat-message-container .chat-message .message {
       font-size: 20px;
       word-break: break-word; }

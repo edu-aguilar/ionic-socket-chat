@@ -6,6 +6,7 @@
         bindings: {
             username: '<',
             message: '<',
+            messagehour: '<',
             currentuser: '<'
         },
         controller: chatMessageController

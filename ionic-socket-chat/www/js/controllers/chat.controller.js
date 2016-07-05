@@ -30,7 +30,8 @@
         //scope methods
         function sendMessage() {
             chat.emit('new message', vm.message);
-            addMessageToList(vm.currentUser, vm.message);
+            var messageHour = moment().format("H:m");
+            addMessageToList(vm.currentUser, vm.message, messageHour);
             chat.emit('stop typing');
             vm.message = "";
             updateScroll();
@@ -48,7 +49,8 @@
 
         function onNewMessage(data) {
             console.log('new message: ' + JSON.stringify(data));
-            addMessageToList(data.username, data.message);
+            var messageHour = moment().format("H:m");
+            addMessageToList(data.username, data.message, messageHour);
             updateScroll();
         }
 
@@ -63,10 +65,11 @@
         }
 
         //private methods
-        function addMessageToList(userName, message){
+        function addMessageToList(userName, message, hour){
             vm.messages.push({
                 content: message,
-                userName: userName
+                userName: userName,
+                messageHour: hour
             });
         }
 
