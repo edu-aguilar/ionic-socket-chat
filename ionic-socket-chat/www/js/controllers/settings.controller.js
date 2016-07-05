@@ -8,14 +8,19 @@
     /* @ngInject */
     function SettingsController($scope, $localStorage, $ionicActionSheet, $cordovaCamera) {
         var vm = this;
+        vm.background = {
+            type: 'color',
+            value: $localStorage.backgroundColor
+        };
         vm.selectedColour = $localStorage.backgroundColor;
 
         //scope methods
         vm.showActionSheet = showActionSheet;
 
         $scope.$watch('vm.selectedColour', function() {
-            $localStorage.backgroundColor = vm.selectedColour;
-            $localStorage.backgroundImage = null;
+            if (vm.selectedColour) {
+                updateBackgroundValues();
+            }
         });
 
         function showActionSheet() {
@@ -43,6 +48,16 @@
         }
 
         //private
+
+        function updateBackgroundValues() {
+            if (!vm.selectedColour) {
+                return;
+            }
+            $localStorage.backgroundColor = vm.selectedColour;
+            $localStorage.backgroundImage = null;
+            vm.background.value = vm.selectedColour;
+        }
+
         function takePicture(sourceType) {
             var options = {
                 quality: 60,

@@ -9,7 +9,10 @@
         var vm = this;
 
         $scope.$on('$ionicView.beforeEnter', function() {
-            vm.selectedColour = $localStorage.backgroundColor || '#FFFFFF';
+            vm.selectedBackground = {
+                type: $localStorage.backgroundColor ? 'color' : 'image',
+                value: $localStorage.backgroundColor || $localStorage.backgroundImage
+            };
         });
 
         //scope vars
