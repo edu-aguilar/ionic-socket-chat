@@ -36,9 +36,9 @@
                 },
                 buttonClicked: function(index) {
                     if (index === 0) {
-                        takePicture(0);
-                    } else {
                         takePicture(1);
+                    } else {
+                        takePicture(0);
                     }
                     return true;
                 }
@@ -60,12 +60,11 @@
 
         function takePicture(sourceType) {
             var options = {
-                quality: 60,
+                quality: 80,
                 destinationType: 0, //base64
                 sourceType: sourceType, //0 galeria, 1 camara
                 allowEdit: false,
-                targetWidth: 100,
-                targetHeight: 100,
+                targetWidth: 800,
                 saveToPhotoAlbum: false,
                 correctOrientation: false
             };
