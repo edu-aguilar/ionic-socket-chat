@@ -40,6 +40,17 @@
             updateScroll();
         }
 
+        //watchers
+        $scope.$watch('vm.message', function(newValue, oldValue) {
+            if (angular.isUndefined(newValue)) {
+              return;
+            } else if (newValue.length > 0) {
+              chat.emit('typing');
+            } else {
+              chat.emit('stop typing');
+            }
+        });
+
         //chat events
         function onConnect() {
             chat.emit('add user', vm.currentUser);
